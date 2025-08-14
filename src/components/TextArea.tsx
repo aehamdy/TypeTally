@@ -18,6 +18,10 @@ const TextArea: React.FC<TextAreaProps> = ({
     setTextContent(e.target.value);
   };
 
+  const handleClear = () => {
+    setTextContent("");
+  };
+
   const handleScroll = () => {
     if (highlightRef.current && textareaRef.current) {
       highlightRef.current.scrollTop = textareaRef.current.scrollTop;
@@ -46,7 +50,11 @@ const TextArea: React.FC<TextAreaProps> = ({
         } end-0 w-22 h-8 bg-[#e5e7eb] rounded-t-lg transition-all duration-500`}
       >
         <div className="relative w-full h-full flex items-center justify-center gap-3">
-          <button type="button" className="group p-1 cursor-pointer">
+          <button
+            type="button"
+            onClick={handleClear}
+            className="group p-1 cursor-pointer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
