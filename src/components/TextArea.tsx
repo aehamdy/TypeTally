@@ -64,7 +64,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         onScroll={handleScroll}
         placeholder="Enter your text..."
         rows={8}
-        className="relative w-full px-4 py-3 bg-transparent rounded-lg resize-none focus:outline-none text-transparent caret-black"
+        className="relative w-full px-4 py-3 text-transparent bg-transparent rounded-lg resize-none focus:outline-none placeholder:text-black caret-black"
         style={{
           fontFamily: "inherit",
           fontSize: "inherit",
