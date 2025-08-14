@@ -95,7 +95,15 @@ const MainContent = () => {
                     Left characters:
                   </span>
 
-                  <span>
+                  <span
+                    className={`${
+                      (selectedOption !== "custom"
+                        ? parseInt(selectedOption || "0", 10)
+                        : parseInt(customOptionValue || "0", 10)) -
+                        textContent.length <
+                        0 && "text-red-500"
+                    }`}
+                  >
                     {(selectedOption !== "custom"
                       ? parseInt(selectedOption || "0", 10)
                       : parseInt(customOptionValue || "0", 10)) -
