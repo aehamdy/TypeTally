@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 interface TextAreaProps {
   setTextContent: (text: string) => void;
@@ -13,6 +13,7 @@ const TextArea: React.FC<TextAreaProps> = ({
 }) => {
   const highlightRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextContent(e.target.value);
@@ -25,6 +26,11 @@ const TextArea: React.FC<TextAreaProps> = ({
   const handleCopyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(textContent);
+      setIsCopied(true);
+
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2000);
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
@@ -137,6 +143,14 @@ const TextArea: React.FC<TextAreaProps> = ({
           lineHeight: "inherit",
         }}
       />
+
+      <div
+        className={`absolute start-1/2 ${
+          isCopied ? "bottom-8 z-20" : "bottom-0 z-[-5]"
+        } -translate-x-1/2 w-fit px-2 py-1 text-sm bg-gray-800 text-white flex items-center justify-center rounded-lg transition-all duration-500`}
+      >
+        Copied to clipboard
+      </div>
     </div>
   );
 };
