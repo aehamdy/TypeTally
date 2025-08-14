@@ -22,6 +22,14 @@ const TextArea: React.FC<TextAreaProps> = ({
     setTextContent("");
   };
 
+  const handleCopyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(textContent);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
   const handleScroll = () => {
     if (highlightRef.current && textareaRef.current) {
       highlightRef.current.scrollTop = textareaRef.current.scrollTop;
@@ -50,7 +58,12 @@ const TextArea: React.FC<TextAreaProps> = ({
         } end-0 w-22 h-8 bg-[#e5e7eb] rounded-t-lg transition-all duration-500`}
       >
         <div className="relative w-full h-full flex items-center justify-center gap-3">
-          <button type="button" className="group p-1 cursor-pointer">
+          {/* Copy to clipboard button */}
+          <button
+            type="button"
+            onClick={handleCopyToClipboard}
+            className="group p-1 cursor-pointer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -66,6 +79,8 @@ const TextArea: React.FC<TextAreaProps> = ({
               />
             </svg>
           </button>
+
+          {/* Clear button */}
           <button
             type="button"
             onClick={handleClear}
@@ -86,6 +101,7 @@ const TextArea: React.FC<TextAreaProps> = ({
               />
             </svg>
           </button>
+
           <div className="absolute w-2 h-2 start-0 top-[53%] -translate-x-[45%] border-4 border-t-transparent border-s-transparent border-e-transparent border-b-[#e5e7eb] rounded-full z-50"></div>
         </div>
       </div>
