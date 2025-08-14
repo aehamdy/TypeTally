@@ -40,10 +40,20 @@ const TextArea: React.FC<TextAreaProps> = ({
 
   return (
     <div className="relative w-full">
+      <div
+        className={`absolute ${
+          textContent ? "-top-5" : "top-0"
+        } end-0 w-22 h-7 bg-[#e5e7eb] rounded-t-lg transition-all duration-500`}
+      >
+        <div className="relative w-full h-full">
+          <div className="absolute w-2 h-2 start-0 top-[50%] -translate-x-[49%] border-4 border-t-transparent border-s-transparent border-e-transparent border-b-[#e5e7eb] rounded-full z-50"></div>
+        </div>
+      </div>
+
       {/* Highlight Layer */}
       <div
         ref={highlightRef}
-        className="absolute w-full top-0 left-0 inset-0 px-4 py-3 bg-red-400 overflow-auto whitespace-pre-wrap break-words rounded-lg text-left shadow-none"
+        className="absolute w-full top-0 left-0 inset-0 px-4 py-3 overflow-auto whitespace-pre-wrap break-words rounded-lg text-left shadow-none"
         style={{
           fontFamily: "inherit",
           fontSize: "inherit",
