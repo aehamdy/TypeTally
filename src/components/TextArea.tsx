@@ -42,11 +42,27 @@ const TextArea: React.FC<TextAreaProps> = ({
     <div className="relative w-full">
       <div
         className={`absolute ${
-          textContent ? "-top-5" : "top-0"
-        } end-0 w-22 h-7 bg-[#e5e7eb] rounded-t-lg transition-all duration-500`}
+          textContent ? "-top-6" : "top-0"
+        } end-0 w-22 h-8 bg-[#e5e7eb] rounded-t-lg transition-all duration-500`}
       >
-        <div className="relative w-full h-full">
-          <div className="absolute w-2 h-2 start-0 top-[50%] -translate-x-[49%] border-4 border-t-transparent border-s-transparent border-e-transparent border-b-[#e5e7eb] rounded-full z-50"></div>
+        <div className="relative w-full h-full flex items-center justify-center gap-3">
+          <button type="button" className="group p-1 cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-4 h-4 group-hover:text-red-500 transition-colors duration-300"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916C15.75 2.253 14.247.75 12 .75S8.25 2.253 8.25 4.5v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+              />
+            </svg>
+          </button>
+          <div className="absolute w-2 h-2 start-0 top-[53%] -translate-x-[45%] border-4 border-t-transparent border-s-transparent border-e-transparent border-b-[#e5e7eb] rounded-full z-50"></div>
         </div>
       </div>
 
