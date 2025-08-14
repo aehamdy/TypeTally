@@ -67,6 +67,21 @@ const MainContent = () => {
             }
           />
         </div>
+
+        {/* Optional: Display current selections for debugging */}
+        {(selectedOption || textContent) && (
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+            <h3 className="text-sm font-medium text-gray-700 mb-2">
+              Current Status:
+            </h3>
+            {selectedOption && (
+              <p className="text-sm text-gray-600">
+                <span className="font-semibold text-gray-700">Selected:</span>{" "}
+                {selectedOption} characters
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
