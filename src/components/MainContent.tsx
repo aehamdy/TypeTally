@@ -80,6 +80,17 @@ const MainContent = () => {
                 {selectedOption} characters
               </p>
             )}
+
+            {textContent && (
+              <div className="text-sm text-gray-600">
+                <p>
+                  <span className="font-semibold text-gray-700">
+                    Text length:
+                  </span>{" "}
+                  {textContent.length} characters
+                </p>
+              </div>
+            )}
           </div>
         )}
       </div>
