@@ -89,6 +89,20 @@ const MainContent = () => {
                   </span>{" "}
                   {textContent.length} characters
                 </p>
+
+                <p className="flex items-center gap-2">
+                  <span className="font-semibold text-gray-700">
+                    Left characters:
+                  </span>
+
+                  <span>
+                    {(selectedOption !== "custom"
+                      ? parseInt(selectedOption || "0", 10)
+                      : parseInt(customOptionValue || "0", 10)) -
+                      textContent.length}{" "}
+                    characters
+                  </span>
+                </p>
               </div>
             )}
           </div>
