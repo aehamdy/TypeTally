@@ -25,14 +25,16 @@ const DropdownSelector = ({
   };
 
   return (
-    <div className={`relative w-full`}>
+    <div className={`relative`}>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
       >
         <span className={selectedOption ? "text-gray-900" : "text-gray-500"}>
-          {selectedOption}
+          {selectedOption !== "custom"
+            ? `${selectedOption} Characters`
+            : `Custom Value`}
         </span>
         <svg
           className={`absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform ${
