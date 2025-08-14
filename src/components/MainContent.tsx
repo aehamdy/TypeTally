@@ -47,7 +47,7 @@ const MainContent = () => {
                   name="custom-value"
                   value={customOptionValue}
                   onChange={(e) => setCustomOptionValue(e.target.value)}
-                  onBlur={(e) => setSelectedOption(e.target.value)}
+                  // onBlur={(e) => setSelectedOption(e.target.value)}
                   className="w-full py-3 px-2 bg-gray-200 border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 />
               )}
@@ -56,7 +56,7 @@ const MainContent = () => {
         </div>
 
         {/* Text Area Section */}
-        <div className="w-full">
+        <div className="w-full my-8">
           <TextArea
             setTextContent={setTextContent}
             textContent={textContent}
@@ -67,25 +67,6 @@ const MainContent = () => {
             }
           />
         </div>
-
-        {/* Optional: Display current selections for debugging */}
-        {(selectedOption || textContent) && (
-          <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-            <h3 className="text-sm font-medium text-gray-700 mb-2">
-              Current Status:
-            </h3>
-            {selectedOption && (
-              <p className="text-sm text-gray-600">
-                Selected: {selectedOption}
-              </p>
-            )}
-            {textContent && (
-              <p className="text-sm text-gray-600">
-                Text length: {textContent.length} characters
-              </p>
-            )}
-          </div>
-        )}
       </div>
     </div>
   );
